@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cowork for Product, Marketing & Design — Executive Summary</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --primary: #1a2b4a;
+    --accent: #7c3aed;
+    --accent-light: #ede9fe;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --pink: #db2777;
+    --pink-light: #fce7f3;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --success: #059669;
+    --success-light: #d1fae5;
+    --warning: #d97706;
+    --warning-light: #fef3c7;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--gray-900);
+    background: #fff;
+    line-height: 1.6;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .doc-header .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .doc-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .doc-header .subtitle {
+    font-size: 15px;
+    color: var(--gray-500);
+    font-weight: 400;
+  }
+  .meta-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gray-500);
+    flex-wrap: wrap;
+  }
+  .meta-bar span { font-weight: 500; color: var(--gray-700); }
+
+  /* Sections */
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 40px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gray-200);
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin: 28px 0 10px;
+  }
+  p { margin-bottom: 12px; font-size: 14px; color: var(--gray-700); }
+
+  /* Callout */
+  .callout {
+    background: var(--gray-50);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--primary); }
+  .callout.green { border-left-color: var(--success); background: #f0fdf4; }
+  .callout.blue { border-left-color: var(--blue); background: #eff6ff; }
+
+  /* Role badges */
+  .role-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 24px;
+  }
+  .role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+  .role-pm { background: #ede9fe; color: #5b21b6; }
+  .role-mktg { background: #fce7f3; color: #9d174d; }
+  .role-design { background: #dbeafe; color: #1d4ed8; }
+  .role-cowork { background: #d1fae5; color: #065f46; }
+
+  /* Hero box */
+  .hero-box {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #dbeafe 100%);
+    border: 1px solid #c4b5fd;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .hero-box h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 8px;
+  }
+  .hero-box p {
+    font-size: 14px;
+    color: var(--gray-700);
+    margin: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* What is Cowork section */
+  .what-is-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .what-is-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+  }
+  .what-is-card .icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .what-is-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .what-is-card p {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Setup steps */
+  .setup-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 20px 0;
+    counter-reset: setup-counter;
+  }
+  .setup-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-100);
+    counter-increment: setup-counter;
+  }
+  .setup-step:last-child { border-bottom: none; }
+  .setup-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .setup-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .setup-content p {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .setup-content .tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .tool-tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: var(--gray-100);
+    color: var(--gray-700);
+  }
+  .tool-tag.highlight { background: var(--accent-light); color: #5b21b6; }
+
+  /* Persona sections */
+  .persona-section {
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .persona-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .persona-header.pm { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-bottom: 3px solid #7c3aed; }
+  .persona-header.mktg { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); border-bottom: 3px solid #db2777; }
+  .persona-header.design { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-bottom: 3px solid #2563eb; }
+  .persona-header .persona-icon { font-size: 24px; }
+  .persona-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .persona-header.pm h3 { color: #5b21b6; }
+  .persona-header.mktg h3 { color: #9d174d; }
+  .persona-header.design h3 { color: #1d4ed8; }
+  .persona-header .persona-sub {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-left: auto;
+  }
+  .persona-body {
+    padding: 20px 24px;
+  }
+  .persona-body p {
+    font-size: 13px;
+  }
+
+  /* Workflow cards inside persona */
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .wf-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .wf-card .wf-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+  }
+  .wf-card.pm-card .wf-label { color: #7c3aed; }
+  .wf-card.mktg-card .wf-label { color: #db2777; }
+  .wf-card.design-card .wf-label { color: #2563eb; }
+  .wf-card h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .wf-card p {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .wf-card .tools-used {
+    margin-top: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-500);
+  }
+  .wf-card .tools-used span {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    font-weight: 500;
+  }
+
+  /* Before/After conversation style */
+  .convo-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .convo-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .convo-msg {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .convo-msg:last-child { margin-bottom: 0; }
+  .convo-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    color: #fff;
+  }
+  .avatar-user { background: var(--accent); }
+  .avatar-cowork { background: var(--success); }
+  .convo-bubble {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--gray-700);
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 85%;
+  }
+  .bubble-user { background: #f5f3ff; border: 1px solid #e9e5ff; }
+  .bubble-cowork { background: #ecfdf5; border: 1px solid #a7f3d0; }
+  .convo-bubble .output-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--success);
+    color: #fff;
+    margin-top: 6px;
+  }
+
+  /* Day-in-the-life timeline */
+  .day-timeline {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 28px;
+  }
+  .day-timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gray-200);
+  }
+  .day-event {
+    position: relative;
+    margin-bottom: 18px;
+    padding-left: 20px;
+  }
+  .day-event::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .day-event.cowork-event::before { background: var(--success); box-shadow: 0 0 0 2px var(--success); }
+  .day-time {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .day-event.cowork-event .day-time { color: var(--success); }
+  .day-task {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 2px;
+  }
+  .day-detail {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+
+  /* Tools ecosystem */
+  .tools-ecosystem {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .eco-tool {
+    text-align: center;
+    padding: 16px 10px;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    background: #fff;
+  }
+  .eco-tool .eco-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .eco-tool .eco-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 2px;
+  }
+  .eco-tool .eco-how {
+    font-size: 10px;
+    color: var(--gray-500);
+    line-height: 1.4;
+  }
+  .eco-tool.connected {
+    border-color: #a7f3d0;
+    background: #f0fdf4;
+  }
+
+  /* Metrics */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .metric-card {
+    text-align: center;
+    padding: 18px 12px;
+    border-radius: 10px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+  }
+  .metric-card .number {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .metric-card .unit {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 4px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Before/After comparison */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .compare-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+  }
+  .compare-card.before { border-top: 4px solid var(--danger); }
+  .compare-card.after { border-top: 4px solid var(--success); }
+  .compare-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .compare-card.before h4 { color: var(--danger); }
+  .compare-card.after h4 { color: var(--success); }
+  .compare-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .compare-item .icon-x { color: var(--danger); font-weight: 700; flex-shrink: 0; }
+  .compare-item .icon-check { color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+  /* Connector setup visual */
+  .connector-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  .connector-node {
+    background: #fff;
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .connector-node .cn-icon { font-size: 22px; margin-bottom: 4px; }
+  .connector-node .cn-name { font-size: 11px; font-weight: 600; color: var(--gray-700); }
+  .connector-node.cowork-node {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: #34d399;
+    min-width: 120px;
+  }
+  .connector-node.cowork-node .cn-name { color: #065f46; font-size: 13px; }
+  .connector-arrow {
+    font-size: 20px;
+    color: var(--gray-300);
+  }
+
+  /* FAQ accordion style */
+  .faq-item {
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 14px 18px;
+    background: #fff;
+  }
+  .faq-q {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .faq-a {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+    font-size: 11px;
+    color: var(--gray-500);
+    text-align: center;
+  }
+
+  /* Recommendation box */
+  .recommendation-box {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #a7f3d0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #065f46;
+  }
+  .recommendation-box strong { color: #047857; }
+
+  /* Numbered list inline */
+  .inline-steps {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .inline-step {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-700);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+  .inline-step .step-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Output types grid */
+  .output-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .output-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 14px;
+    background: #fff;
+    text-align: center;
+  }
+  .output-card .out-icon { font-size: 22px; margin-bottom: 6px; }
+  .output-card .out-type {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 3px;
+  }
+  .output-card .out-desc {
+    font-size: 10px;
+    color: var(--gray-500);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 700px) {
+    .what-is-grid, .workflow-grid, .metrics-row, .tools-ecosystem, .compare-grid, .output-grid {
+      grid-template-columns: 1fr;
+    }
+    .connector-flow { flex-direction: column; }
+    .connector-arrow { transform: rotate(90deg); }
+  }
+
+  @media print {
+    body { padding: 20px; }
+    .persona-section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="doc-header">
+  <div class="label">Executive Summary</div>
+  <h1>Cowork for Product, Marketing & Design Teams</h1>
+  <div class="subtitle">How Non-Technical Teams Can Set Up and Use Cowork to Transform Their Everyday Workflows</div>
+  <div class="meta-bar">
+    <div>Audience: <span>Product Managers, Marketers & Designers</span></div>
+    <div>Date: <span>February 2026</span></div>
+    <div>Reading Time: <span>~10 minutes</span></div>
+  </div>
+</div>
+
+<!-- ROLES -->
+<div class="role-legend">
+  <span class="role-badge role-pm">Product Manager</span>
+  <span class="role-badge role-mktg">Marketing</span>
+  <span class="role-badge role-design">Designer</span>
+  <span class="role-badge role-cowork">Cowork (AI)</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- WHAT IS COWORK -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="hero-box">
+  <h3>What Is Cowork?</h3>
+  <p>Cowork is an AI-powered assistant built into the Claude desktop app. It works like having a capable teammate who can read your files, create documents, analyze data, browse the web, and connect to the tools you already use — all through a simple conversation. No coding required.</p>
+</div>
+
+<div class="what-is-grid">
+  <div class="what-is-card">
+    <div class="icon">💬</div>
+    <h4>Talk, Don't Code</h4>
+    <p>Describe what you need in plain English. Cowork understands context, asks clarifying questions, and delivers polished outputs.</p>
+  </div>
+  <div class="what-is-card">
+    <div class="icon">📁</div>
+    <h4>Works With Your Files</h4>
+    <p>Point it at a folder on your computer. It can read, edit, and create Word docs, spreadsheets, presentations, PDFs, and more.</p>
+  </div>
+  <div class="what-is-card">
+    <div class="icon">🔌</div>
+    <h4>Connects to Your Tools</h4>
+    <p>Plug in Jira, Confluence, Figma, BigQuery, Slack, and other tools through simple connectors — no API keys or setup scripts needed.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SETUP GUIDE -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>Getting Started: Setup in 5 Minutes</h2>
+<p>Cowork is designed for people who have never written a line of code. Here's how to go from zero to productive.</p>
+
+<div class="setup-flow">
+  <div class="setup-step">
+    <div class="setup-num">1</div>
+    <div class="setup-content">
+      <h4>Open the Claude Desktop App</h4>
+      <p>Download from <strong>claude.ai/download</strong> if you haven't already. Log in with your company's SSO credentials. Cowork is included in every Claude Teams seat — no separate license needed.</p>
+      <div class="tool-tags">
+        <span class="tool-tag">macOS</span>
+        <span class="tool-tag">Windows</span>
+        <span class="tool-tag">SSO Login</span>
+      </div>
+    </div>
+  </div>
+  <div class="setup-step">
+    <div class="setup-num">2</div>
+    <div class="setup-content">
+      <h4>Switch to Cowork Mode</h4>
+      <p>In the Claude desktop app, look for the <strong>Cowork</strong> toggle or tab. Click it to enter Cowork mode. This gives Claude the ability to work with files on your computer, create documents, and run code — all within a secure sandbox.</p>
+      <div class="tool-tags">
+        <span class="tool-tag highlight">One click to enable</span>
+      </div>
+    </div>
+  </div>
+  <div class="setup-step">
+    <div class="setup-num">3</div>
+    <div class="setup-content">
+      <h4>Select a Working Folder</h4>
+      <p>Cowork will ask you to choose a folder on your computer. This is where it reads your files and saves its outputs (documents, spreadsheets, presentations). Pick your project folder, Downloads, or any location that makes sense for your workflow.</p>
+      <div class="tool-tags">
+        <span class="tool-tag">Your Documents</span>
+        <span class="tool-tag">Project Folders</span>
+        <span class="tool-tag">Shared Drives</span>
+      </div>
+    </div>
+  </div>
+  <div class="setup-step">
+    <div class="setup-num">4</div>
+    <div class="setup-content">
+      <h4>Connect Your Tools (Optional)</h4>
+      <p>Ask Cowork to connect to the tools you use. Just say something like <em>"Connect to Jira"</em> or <em>"I need to access Confluence."</em> Cowork will walk you through a simple authorization flow — usually just clicking "Allow" in your browser. No API keys, no configuration files.</p>
+      <div class="tool-tags">
+        <span class="tool-tag highlight">Jira</span>
+        <span class="tool-tag highlight">Confluence</span>
+        <span class="tool-tag highlight">Figma</span>
+        <span class="tool-tag highlight">Slack</span>
+        <span class="tool-tag">BigQuery</span>
+        <span class="tool-tag">Google Drive</span>
+      </div>
+    </div>
+  </div>
+  <div class="setup-step">
+    <div class="setup-num">5</div>
+    <div class="setup-content">
+      <h4>Start Asking for What You Need</h4>
+      <p>That's it. There's no configuration page, no settings file, no command line. Just start a conversation: <em>"Help me write a PRD for our new rewards feature"</em> or <em>"Analyze last quarter's campaign data from this spreadsheet."</em></p>
+      <div class="tool-tags">
+        <span class="tool-tag highlight">You're ready!</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONNECTOR VISUAL -->
+<h3>How Connectors Work</h3>
+<p>Connectors are how Cowork talks to your existing tools. Think of them like giving Cowork permission to read from or write to a specific app on your behalf.</p>
+
+<div class="connector-flow">
+  <div class="connector-node"><div class="cn-icon">📋</div><div class="cn-name">Jira</div></div>
+  <div class="connector-arrow">→</div>
+  <div class="connector-node"><div class="cn-icon">📝</div><div class="cn-name">Confluence</div></div>
+  <div class="connector-arrow">→</div>
+  <div class="connector-node cowork-node"><div class="cn-icon">✨</div><div class="cn-name">Cowork</div></div>
+  <div class="connector-arrow">←</div>
+  <div class="connector-node"><div class="cn-icon">🎨</div><div class="cn-name">Figma</div></div>
+  <div class="connector-arrow">←</div>
+  <div class="connector-node"><div class="cn-icon">📊</div><div class="cn-name">BigQuery</div></div>
+</div>
+
+<div class="callout green">
+  <strong>No IT help needed.</strong> Connectors use standard OAuth — the same "Sign in with..." flow you use for dozens of apps. Your admin pre-approves which connectors are available. You just click "Connect" when prompted.
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- WHAT COWORK CAN CREATE -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>What Cowork Creates for You</h2>
+<p>Cowork doesn't just chat — it produces real, polished files you can share, present, and use immediately.</p>
+
+<div class="output-grid">
+  <div class="output-card">
+    <div class="out-icon">📄</div>
+    <div class="out-type">Word Documents</div>
+    <div class="out-desc">PRDs, briefs, memos, reports with proper formatting, headers, and tables</div>
+  </div>
+  <div class="output-card">
+    <div class="out-icon">📊</div>
+    <div class="out-type">Spreadsheets</div>
+    <div class="out-desc">Data analysis, pivot tables, charts, budget models with formulas</div>
+  </div>
+  <div class="output-card">
+    <div class="out-icon">📑</div>
+    <div class="out-type">Presentations</div>
+    <div class="out-desc">Slide decks for stakeholder reviews, board meetings, pitch decks</div>
+  </div>
+  <div class="output-card">
+    <div class="out-icon">🌐</div>
+    <div class="out-type">Interactive Prototypes</div>
+    <div class="out-desc">Clickable HTML mockups for user flows — no Figma skills needed</div>
+  </div>
+  <div class="output-card">
+    <div class="out-icon">📈</div>
+    <div class="out-type">Data Visualizations</div>
+    <div class="out-desc">Charts, dashboards, and visual reports from raw data or BigQuery</div>
+  </div>
+  <div class="output-card">
+    <div class="out-icon">📋</div>
+    <div class="out-type">PDFs</div>
+    <div class="out-desc">Formatted reports, filled forms, merged documents ready to share</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PERSONA: PRODUCT MANAGER -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>How Each Role Uses Cowork</h2>
+
+<div class="persona-section">
+  <div class="persona-header pm">
+    <span class="persona-icon">📋</span>
+    <h3>Product Managers</h3>
+    <span class="persona-sub">Roadmaps, specs, stakeholder alignment</span>
+  </div>
+  <div class="persona-body">
+    <p>Product managers spend a huge amount of time on document-heavy work — writing PRDs, grooming backlogs, pulling data for prioritization decisions, and communicating across teams. Cowork handles the production work so PMs can focus on strategy and decisions.</p>
+
+    <div class="workflow-grid">
+      <div class="wf-card pm-card">
+        <div class="wf-label">Workflow 1</div>
+        <h5>Write a PRD from a Conversation</h5>
+        <p>Describe a feature in plain language. Cowork asks clarifying questions, then generates a structured PRD with user stories, acceptance criteria, edge cases, and success metrics — saved as a Word doc.</p>
+        <div class="tools-used"><span>Confluence</span><span>Word</span></div>
+      </div>
+      <div class="wf-card pm-card">
+        <div class="wf-label">Workflow 2</div>
+        <h5>Groom & Create Jira Tickets</h5>
+        <p>Share your PRD or feature brief. Cowork breaks it into well-structured Jira stories with descriptions, acceptance criteria, and suggested story points — ready to push into your board.</p>
+        <div class="tools-used"><span>Jira</span><span>Confluence</span></div>
+      </div>
+      <div class="wf-card pm-card">
+        <div class="wf-label">Workflow 3</div>
+        <h5>Analyze Product Metrics</h5>
+        <p>Point Cowork at a CSV export or connect BigQuery. Ask questions like "What's our conversion funnel drop-off by corridor?" and get charts, pivot tables, and a summary spreadsheet.</p>
+        <div class="tools-used"><span>BigQuery</span><span>Excel</span></div>
+      </div>
+      <div class="wf-card pm-card">
+        <div class="wf-label">Workflow 4</div>
+        <h5>Build a Stakeholder Presentation</h5>
+        <p>Say "Create a quarterly review deck from this data." Cowork produces a polished .pptx with metrics, highlights, and next steps — no fiddling with slide layouts.</p>
+        <div class="tools-used"><span>PowerPoint</span><span>Excel</span></div>
+      </div>
+    </div>
+
+    <!-- Example conversation -->
+    <div class="convo-box">
+      <div class="convo-title">Example: PM Creating a PRD</div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-user">PM</div>
+        <div class="convo-bubble bubble-user">I need a PRD for a new rewards feature. Users earn points for every transaction and can redeem them for fee discounts. Target launch is Q3.</div>
+      </div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-cowork">Co</div>
+        <div class="convo-bubble bubble-cowork">Got it. A few questions before I draft this: (1) Is there a points expiration policy? (2) What's the minimum redemption threshold? (3) Should points be visible in the existing wallet UI or a new section? (4) Any compliance considerations for rewards programs in your operating states?</div>
+      </div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-user">PM</div>
+        <div class="convo-bubble bubble-user">Points expire after 12 months. Min 500 points to redeem. New section in the app. Check with compliance on state rules.</div>
+      </div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-cowork">Co</div>
+        <div class="convo-bubble bubble-cowork">I've created a complete PRD covering the rewards program with all sections: overview, user stories, acceptance criteria, edge cases, compliance flags, and success metrics.<br><span class="output-tag">📄 Rewards-PRD.docx saved</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PERSONA: MARKETING -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="persona-section">
+  <div class="persona-header mktg">
+    <span class="persona-icon">📣</span>
+    <h3>Marketing Teams</h3>
+    <span class="persona-sub">Campaigns, content, analytics</span>
+  </div>
+  <div class="persona-body">
+    <p>Marketing teams juggle content creation, campaign analysis, competitive research, and cross-channel coordination. Cowork accelerates the research and production phases so marketers can spend more time on creative strategy.</p>
+
+    <div class="workflow-grid">
+      <div class="wf-card mktg-card">
+        <div class="wf-label">Workflow 1</div>
+        <h5>Analyze Campaign Performance</h5>
+        <p>Upload a campaign export spreadsheet or connect to your analytics source. Ask "Which channels had the best ROI last quarter?" and get a visual report with charts and actionable insights.</p>
+        <div class="tools-used"><span>Excel</span><span>BigQuery</span></div>
+      </div>
+      <div class="wf-card mktg-card">
+        <div class="wf-label">Workflow 2</div>
+        <h5>Create Content Briefs</h5>
+        <p>Describe your target audience and campaign goals. Cowork produces structured content briefs with messaging frameworks, SEO keywords, tone guidelines, and distribution checklists.</p>
+        <div class="tools-used"><span>Word</span><span>Confluence</span></div>
+      </div>
+      <div class="wf-card mktg-card">
+        <div class="wf-label">Workflow 3</div>
+        <h5>Competitive Research Reports</h5>
+        <p>Ask Cowork to research a competitor's recent product launches, pricing changes, or marketing moves. It searches the web, synthesizes findings, and delivers a formatted report.</p>
+        <div class="tools-used"><span>Web Search</span><span>Word</span></div>
+      </div>
+      <div class="wf-card mktg-card">
+        <div class="wf-label">Workflow 4</div>
+        <h5>Build Email & Landing Page Copy</h5>
+        <p>Provide campaign context and Cowork drafts email sequences, landing page copy, and A/B test variants — all saved as editable documents you can paste into your email platform.</p>
+        <div class="tools-used"><span>Word</span><span>HTML</span></div>
+      </div>
+    </div>
+
+    <div class="convo-box">
+      <div class="convo-title">Example: Marketing Analyzing Campaign Data</div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-user">MK</div>
+        <div class="convo-bubble bubble-user">I've uploaded our Q4 campaign data spreadsheet. Can you tell me which campaigns had the best cost-per-acquisition and create a summary I can share with leadership?</div>
+      </div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-cowork">Co</div>
+        <div class="convo-bubble bubble-cowork">I've analyzed your Q4 data across 14 campaigns. Your referral program had the lowest CPA at $3.20, while paid social averaged $18.50. I've created two files: a detailed spreadsheet with pivot tables by channel and a 6-slide executive summary deck.<br><span class="output-tag">📊 Q4-Campaign-Analysis.xlsx saved</span><br><span class="output-tag">📑 Q4-Summary-Deck.pptx saved</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PERSONA: DESIGNER -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="persona-section">
+  <div class="persona-header design">
+    <span class="persona-icon">🎨</span>
+    <h3>Designers</h3>
+    <span class="persona-sub">Prototypes, specs, design systems</span>
+  </div>
+  <div class="persona-body">
+    <p>Designers often spend time on documentation, spec writing, and cross-referencing requirements rather than actual design work. Cowork handles the non-visual production tasks — turning Figma files into specs, building quick interactive prototypes, and generating design documentation.</p>
+
+    <div class="workflow-grid">
+      <div class="wf-card design-card">
+        <div class="wf-label">Workflow 1</div>
+        <h5>Generate Interactive Prototypes</h5>
+        <p>Describe a user flow in words — Cowork builds a clickable HTML prototype with realistic UI elements, form fields, and navigation. Perfect for early stakeholder feedback before opening Figma.</p>
+        <div class="tools-used"><span>HTML</span><span>Browser</span></div>
+      </div>
+      <div class="wf-card design-card">
+        <div class="wf-label">Workflow 2</div>
+        <h5>Write Design Specs from Figma</h5>
+        <p>Connect Figma and ask Cowork to document your design decisions — spacing, color tokens, component behavior, interaction states — into a structured spec document engineers can reference.</p>
+        <div class="tools-used"><span>Figma</span><span>Confluence</span></div>
+      </div>
+      <div class="wf-card design-card">
+        <div class="wf-label">Workflow 3</div>
+        <h5>Audit & Document Design Systems</h5>
+        <p>Share your design system files and Cowork produces a comprehensive inventory: component list, usage guidelines, color palette documentation, and inconsistency flags.</p>
+        <div class="tools-used"><span>Figma</span><span>Word</span></div>
+      </div>
+      <div class="wf-card design-card">
+        <div class="wf-label">Workflow 4</div>
+        <h5>Create User Research Summaries</h5>
+        <p>Upload interview notes, survey exports, or usability test recordings. Cowork synthesizes findings into themes, pain points, and opportunity areas — formatted as a shareable report.</p>
+        <div class="tools-used"><span>Excel</span><span>Word</span></div>
+      </div>
+    </div>
+
+    <div class="convo-box">
+      <div class="convo-title">Example: Designer Building a Quick Prototype</div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-user">DS</div>
+        <div class="convo-bubble bubble-user">I need a quick prototype for a new onboarding flow. 4 steps: welcome screen, ID verification upload, phone number entry, and confirmation. Mobile-first. Use our brand purple (#7c3aed).</div>
+      </div>
+      <div class="convo-msg">
+        <div class="convo-avatar avatar-cowork">Co</div>
+        <div class="convo-bubble bubble-cowork">I've built a clickable mobile prototype with all 4 onboarding steps. Each screen has a progress indicator, proper form fields, and a "Next" button that navigates between steps. You can open it in your browser to walk through the flow.<br><span class="output-tag">🌐 Onboarding-Prototype.html saved</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- A DAY IN THE LIFE -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>A Day in the Life: Product Manager with Cowork</h2>
+<p>Here's what a typical day looks like for a PM who has integrated Cowork into their workflow.</p>
+
+<div class="day-timeline">
+  <div class="day-event">
+    <div class="day-time">8:30 AM</div>
+    <div class="day-task">Morning standup prep</div>
+    <div class="day-detail">Checks Slack for overnight messages, reviews calendar for the day</div>
+  </div>
+  <div class="day-event cowork-event">
+    <div class="day-time">8:45 AM — Cowork</div>
+    <div class="day-task">"Summarize all open Jira blockers for my team"</div>
+    <div class="day-detail">Cowork pulls from Jira, identifies 3 blocked stories, and creates a summary with owner names and suggested next steps</div>
+  </div>
+  <div class="day-event">
+    <div class="day-time">9:00 AM</div>
+    <div class="day-task">Standup meeting</div>
+    <div class="day-detail">Uses Cowork's blocker summary to lead a focused discussion — resolves two blockers in 10 minutes</div>
+  </div>
+  <div class="day-event cowork-event">
+    <div class="day-time">10:00 AM — Cowork</div>
+    <div class="day-task">"Draft a PRD for the fee transparency feature we discussed yesterday"</div>
+    <div class="day-detail">Cowork asks 4 clarifying questions, then produces a structured PRD with acceptance criteria, edge cases, and compliance flags → saves as .docx</div>
+  </div>
+  <div class="day-event cowork-event">
+    <div class="day-time">11:00 AM — Cowork</div>
+    <div class="day-task">"Break this PRD into Jira stories and add them to Sprint 24"</div>
+    <div class="day-detail">Cowork creates 8 Jira stories with descriptions, acceptance criteria, and suggested labels — ready for grooming</div>
+  </div>
+  <div class="day-event">
+    <div class="day-time">12:00 PM</div>
+    <div class="day-task">Lunch & stakeholder 1:1</div>
+    <div class="day-detail">Discusses Q3 roadmap priorities over lunch</div>
+  </div>
+  <div class="day-event cowork-event">
+    <div class="day-time">1:30 PM — Cowork</div>
+    <div class="day-task">"Analyze this corridor performance CSV and show me which routes have declining volume"</div>
+    <div class="day-detail">Cowork processes the data, creates charts showing 3 declining corridors, and flags potential causes → saves analysis as .xlsx with charts</div>
+  </div>
+  <div class="day-event cowork-event">
+    <div class="day-time">3:00 PM — Cowork</div>
+    <div class="day-task">"Create a 10-slide deck for tomorrow's leadership review using today's analysis"</div>
+    <div class="day-detail">Cowork builds a presentation pulling insights from the earlier analysis → saves as .pptx with formatted charts and talking points in speaker notes</div>
+  </div>
+  <div class="day-event">
+    <div class="day-time">4:00 PM</div>
+    <div class="day-task">Sprint planning session</div>
+    <div class="day-detail">Reviews the Jira stories Cowork created — team refines estimates and commits to the sprint</div>
+  </div>
+  <div class="day-event cowork-event">
+    <div class="day-time">4:45 PM — Cowork</div>
+    <div class="day-task">"Draft a Confluence page summarizing sprint commitments and share the Jira links"</div>
+    <div class="day-detail">Cowork creates a structured sprint summary with links to each story, owner assignments, and key milestones</div>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>Time saved:</strong> In this day, the PM offloaded roughly 4–5 hours of document production, data analysis, and ticket creation to Cowork — freeing that time for strategic thinking, stakeholder conversations, and decision-making.
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- BEFORE/AFTER -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>Before & After Cowork</h2>
+
+<div class="compare-grid">
+  <div class="compare-card before">
+    <h4>✗ Without Cowork</h4>
+    <div class="compare-item"><span class="icon-x">✗</span> Writing a PRD takes 2–3 days of focused work</div>
+    <div class="compare-item"><span class="icon-x">✗</span> Creating Jira tickets from a spec takes 1–2 hours of manual entry</div>
+    <div class="compare-item"><span class="icon-x">✗</span> Analyzing a spreadsheet means fumbling with pivot tables or asking a data analyst</div>
+    <div class="compare-item"><span class="icon-x">✗</span> Building a presentation deck takes half a day of slide formatting</div>
+    <div class="compare-item"><span class="icon-x">✗</span> Getting a quick prototype requires waiting for design capacity</div>
+    <div class="compare-item"><span class="icon-x">✗</span> Competitive research means hours of manual web browsing</div>
+    <div class="compare-item"><span class="icon-x">✗</span> Campaign analysis reports take days to compile from multiple sources</div>
+  </div>
+  <div class="compare-card after">
+    <h4>✓ With Cowork</h4>
+    <div class="compare-item"><span class="icon-check">✓</span> PRD generated in 15–30 minutes through conversation</div>
+    <div class="compare-item"><span class="icon-check">✓</span> Jira stories created automatically from the PRD in minutes</div>
+    <div class="compare-item"><span class="icon-check">✓</span> Data analysis with charts and insights in one conversation</div>
+    <div class="compare-item"><span class="icon-check">✓</span> Polished deck created from existing data in 10–15 minutes</div>
+    <div class="compare-item"><span class="icon-check">✓</span> Clickable HTML prototype in 5 minutes — no design tools needed</div>
+    <div class="compare-item"><span class="icon-check">✓</span> Research report with sourced findings in 20 minutes</div>
+    <div class="compare-item"><span class="icon-check">✓</span> Campaign analysis with visualizations in a single session</div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-row">
+  <div class="metric-card">
+    <div class="number">~70%</div>
+    <div class="unit">Less Time on<br>Document Production</div>
+  </div>
+  <div class="metric-card">
+    <div class="number">~5x</div>
+    <div class="unit">Faster Prototype<br>Turnaround</div>
+  </div>
+  <div class="metric-card">
+    <div class="number">~60%</div>
+    <div class="unit">Reduction in<br>Data Request Wait Times</div>
+  </div>
+  <div class="metric-card">
+    <div class="number">~3hrs</div>
+    <div class="unit">Saved Per PM<br>Per Day</div>
+  </div>
+</div>
+<p style="font-size: 11px; color: var(--gray-500); text-align: center; margin-top: -8px;">
+  Estimates are illustrative projections based on typical workflows — not measured benchmarks.
+</p>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TOOLS ECOSYSTEM -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>Tools Cowork Connects To</h2>
+<p>Cowork integrates with the tools your teams already use. Connectors are added with a single click — no configuration files, no API keys, no IT tickets.</p>
+
+<div class="tools-ecosystem">
+  <div class="eco-tool connected">
+    <div class="eco-icon">📋</div>
+    <div class="eco-name">Jira</div>
+    <div class="eco-how">Create, read & update stories, bugs, and epics</div>
+  </div>
+  <div class="eco-tool connected">
+    <div class="eco-icon">📝</div>
+    <div class="eco-name">Confluence</div>
+    <div class="eco-how">Read pages, create documentation, update specs</div>
+  </div>
+  <div class="eco-tool connected">
+    <div class="eco-icon">🎨</div>
+    <div class="eco-name">Figma</div>
+    <div class="eco-how">Read design files, extract specs, review components</div>
+  </div>
+  <div class="eco-tool connected">
+    <div class="eco-icon">📊</div>
+    <div class="eco-name">BigQuery</div>
+    <div class="eco-how">Query data, build reports, analyze metrics</div>
+  </div>
+  <div class="eco-tool">
+    <div class="eco-icon">💬</div>
+    <div class="eco-name">Slack</div>
+    <div class="eco-how">Read channels, summarize threads, draft messages</div>
+  </div>
+  <div class="eco-tool">
+    <div class="eco-icon">📂</div>
+    <div class="eco-name">Google Drive</div>
+    <div class="eco-how">Access docs, sheets, and files across your org</div>
+  </div>
+  <div class="eco-tool">
+    <div class="eco-icon">📧</div>
+    <div class="eco-name">Gmail / Outlook</div>
+    <div class="eco-how">Summarize emails, draft replies, find threads</div>
+  </div>
+  <div class="eco-tool">
+    <div class="eco-icon">📈</div>
+    <div class="eco-name">Excel / Sheets</div>
+    <div class="eco-how">Analyze, chart, format, and create spreadsheets</div>
+  </div>
+</div>
+
+<div class="callout blue">
+  <strong>Browser automation as a fallback.</strong> Even if a specific connector doesn't exist yet, Cowork can use Claude in Chrome to interact with any web application you have open — so your workflow is never blocked by a missing integration.
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TIPS FOR SUCCESS -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>Tips for Getting the Most Out of Cowork</h2>
+
+<div class="faq-item">
+  <div class="faq-q">Be specific about what you want</div>
+  <div class="faq-a">Instead of "make a deck," try "Create a 10-slide presentation for our leadership team showing Q4 corridor performance, with charts comparing volume and revenue by region." The more context you give, the better the output.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Iterate like you would with a colleague</div>
+  <div class="faq-a">Cowork remembers your full conversation. After the first draft, just say "Make the executive summary shorter" or "Add a slide about mobile engagement" — no need to start over.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Point it at your files</div>
+  <div class="faq-a">Select your project folder when starting a session. Cowork can read your existing documents, spreadsheets, and data files — so it works with your real context, not generic templates.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Let it ask you questions</div>
+  <div class="faq-a">Cowork will often ask clarifying questions before diving in. This isn't slowing you down — it's making sure the output is right the first time. Good questions lead to better documents.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Use it for the tedious parts</div>
+  <div class="faq-a">Cowork is best at taking your strategic thinking and turning it into polished artifacts. You bring the ideas and decisions; Cowork handles the formatting, structuring, and production.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- FAQ -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>Common Questions</h2>
+
+<div class="faq-item">
+  <div class="faq-q">Do I need any technical skills to use Cowork?</div>
+  <div class="faq-a">No. Cowork is designed for non-technical users. You interact through natural conversation — just describe what you need in plain English. If Cowork needs more detail, it will ask follow-up questions.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Is my data secure?</div>
+  <div class="faq-a">Cowork runs in a secure sandbox on your local machine. Files stay on your computer. Connectors use standard OAuth with your company's SSO. Your admin controls which tools are available and can set usage policies through the Teams admin panel.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Do I need a separate license for Cowork?</div>
+  <div class="faq-a">No. Cowork is included in every Claude Teams seat at no additional cost. Standard seats ($25/mo) include full Cowork access — the only difference between Standard and Premium ($150/mo) is usage volume. Start with Standard and upgrade only if you hit rate limits regularly.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">Can Cowork replace my existing tools?</div>
+  <div class="faq-a">Cowork doesn't replace Jira, Figma, or Confluence — it connects to them and makes you more productive with them. Think of it as an intelligent layer on top of your existing toolset that handles the production work.</div>
+</div>
+<div class="faq-item">
+  <div class="faq-q">What happens when I hit my usage limit?</div>
+  <div class="faq-a">Usage limits are per-person and reset on a rolling 7-day cycle. If your admin has enabled overage billing, you can keep working at API rates. Otherwise, you wait for the reset. For most PMs and marketers, the Standard seat limits are more than sufficient for daily use.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- KEY TAKEAWAY -->
+<!-- ═══════════════════════════════════════════════ -->
+<h2>Key Takeaway</h2>
+
+<div class="recommendation-box">
+  <strong>Cowork turns every PM, marketer, and designer into a more productive version of themselves.</strong> It doesn't require technical skills, new workflows, or a steep learning curve. Open the Claude desktop app, switch to Cowork mode, select your folder, and start describing what you need. The documents, analyses, and prototypes appear in your folder — ready to share, present, and use.
+</div>
+
+<p>The biggest shift isn't about any single feature — it's about removing the wait. PMs no longer wait for data analysts to pull reports. Marketers no longer wait for designers to mock up campaign assets. Designers no longer wait for engineers to prototype interactions. Everyone on the team can independently produce high-quality work artifacts, using the same tools they already know, faster than ever before.</p>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  Prepared February 2026 &middot; Illustrative projections only — not based on measured benchmarks &middot; Pricing subject to change at <a href="https://claude.com/pricing" style="color: var(--accent);">claude.com/pricing</a>
+</div>
+
+</body>
+</html>
