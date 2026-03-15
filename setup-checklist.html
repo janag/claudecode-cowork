@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Cowork Setup Checklist</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .checklist {
+    width: 780px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 44px 48px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #111111;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .header .subtitle {
+    font-size: 14px;
+    color: #888888;
+    font-weight: 400;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 22px 0;
+  }
+
+  .section {
+    margin-bottom: 26px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: #111111;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+
+  .section-number {
+    font-size: 13px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-right: 6px;
+  }
+
+  .items {
+    list-style: none;
+    padding: 0;
+  }
+
+  .items li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 9px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.5;
+  }
+
+  .cb {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cccccc;
+    border-radius: 3px;
+    margin-top: 2px;
+    background: #fff;
+  }
+
+
+  .items li strong {
+    font-weight: 600;
+    color: #111111;
+  }
+
+  .items li .detail {
+    color: #888888;
+    font-size: 12.5px;
+  }
+
+  .sub-box {
+    background: #f7f7f7;
+    border-left: 3px solid #cccccc;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin: 8px 0 0 30px;
+    font-size: 13px;
+    color: #444444;
+    line-height: 1.6;
+  }
+
+  .sub-box strong {
+    color: #111111;
+  }
+
+  /* Folder tree */
+  .folder-tree {
+    margin: 8px 0 0 30px;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    color: #444444;
+    line-height: 1.8;
+    background: #f7f7f7;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+
+  .folder-tree .folder {
+    font-weight: 700;
+    color: #111111;
+  }
+
+  .folder-tree .desc {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 11.5px;
+    color: #888888;
+    font-weight: 400;
+  }
+
+  /* Model section */
+  .model-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0 0 30px;
+  }
+
+  .model-card {
+    background: #f7f7f7;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .model-card .model-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 1px;
+  }
+
+  .model-card .model-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666666;
+    margin-bottom: 6px;
+  }
+
+  .model-card .model-desc {
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.4;
+  }
+
+  .model-card .model-warning {
+    font-size: 11px;
+    color: #999999;
+    margin-top: 6px;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .model-card.recommended {
+    border-color: #27ae60;
+  }
+
+  .model-card.opus {
+    border-color: #e74c3c;
+  }
+
+  .model-card.haiku {
+    border-color: #e0e0e0;
+  }
+
+  .model-card .model-name {
+    text-align: center;
+  }
+  .model-card .model-tag {
+    text-align: center;
+  }
+  .model-card .model-desc {
+    text-align: center;
+  }
+  .model-card .model-warning {
+    text-align: center;
+  }
+
+  .model-examples {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .model-examples .role-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 5px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #666666;
+  }
+
+  .model-examples .role-label {
+    font-weight: 600;
+    color: #444444;
+    white-space: nowrap;
+    min-width: 62px;
+  }
+
+  /* Example cards grid */
+  .example-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0 0 30px;
+  }
+
+  .example-card {
+    background: #f9f9f6;
+    border: 1px solid #e5e5dd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .example-card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 9px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #444444;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: 'Inter', -apple-system, sans-serif;
+    transition: background 0.15s;
+  }
+
+  .example-card-header:hover {
+    background: #f0f0ec;
+  }
+
+  .example-card-header .arrow {
+    display: inline-block;
+    font-size: 9px;
+    transition: transform 0.25s ease;
+    color: #999999;
+  }
+
+  .example-card-header.open .arrow {
+    transform: rotate(90deg);
+  }
+
+  .example-card-header .card-filename {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #333333;
+  }
+
+  .example-card-header .card-desc {
+    font-weight: 400;
+    color: #999999;
+    font-size: 11px;
+  }
+
+  .example-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .example-card-body.open {
+    max-height: 800px;
+  }
+
+  .example-card-content {
+    padding: 0 12px 10px 12px;
+    border-top: 1px solid #e5e5dd;
+    margin-top: 0;
+    font-size: 12px;
+    color: #444444;
+    line-height: 1.65;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  .example-card-content .ex-heading {
+    font-weight: 700;
+    font-size: 11.5px;
+    color: #222222;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+
+  .example-card-content .ex-heading:first-child {
+    margin-top: 8px;
+  }
+
+  .example-card-content .ex-item {
+    margin-left: 8px;
+    color: #555555;
+  }
+
+  .example-card-content .ex-label {
+    font-weight: 600;
+    color: #333333;
+  }
+
+  .example-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* Code block */
+  .code-block {
+    background: #f7f7f7;
+    color: #333333;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #e8e8e8;
+    margin: 8px 0 0 30px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+
+  /* Connector pills */
+  .connector-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 8px 0 0 30px;
+  }
+
+  .connector-pill {
+    background: #f0f0f0;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 3px 11px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #333333;
+  }
+
+  /* Stop doing */
+  .stop-items li .dont {
+    color: #999999;
+    text-decoration: line-through;
+  }
+  .stop-items li .fix {
+    color: #111111;
+    font-weight: 600;
+  }
+
+  /* Sample prompts */
+  .prompts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0 0 30px;
+  }
+
+  .prompt-group {
+    background: #f7f7f7;
+    border-radius: 6px;
+    padding: 9px 12px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .prompt-group .tool-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 3px;
+  }
+
+  .prompt-group .prompt-example {
+    font-size: 11.5px;
+    color: #777777;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+
+</style>
+</head>
+<body>
+
+<div class="checklist">
+
+  <div class="header">
+    <h1>Claude Cowork Setup Checklist</h1>
+    <div class="subtitle">Set up once. Use every day.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 1. BEFORE YOU START -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">1.</span> Before You Start</div>
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Install Claude Desktop App</strong> — Download from <a href="https://claude.ai/download" style="color:#555;">claude.ai/download</a></div></li>
+      <li><div class="cb"></div><div><strong>Sign in with your work email</strong> — Click the secure link Anthropic sends you<br><span class="detail">Ignore the code page — the email link authenticates you automatically</span></div></li>
+      <li><div class="cb"></div><div><strong>Switch to Cowork mode</strong> — Click the Cowork toggle in the desktop app</div></li>
+    </ul>
+  </div>
+
+  <!-- 2. BUILD YOUR WORKSPACE -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">2.</span> Build Your Workspace</div>
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Create a master folder "Claude-Work"</strong> with these subfolders:</div></li>
+    </ul>
+    <div class="folder-tree">
+      <span class="folder">&#128193; Claude-Work/</span><br>
+      ├── <span class="folder">&#128194; ABOUT ME/</span> <span class="desc">&mdash; who you are + how you write</span><br>
+      │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── about-me.md <span class="desc">(what you do day-to-day, not your resume)</span><br>
+      │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── my-voice.md <span class="desc">(your tone, phrases you hate, 2&ndash;3 writing samples)</span><br>
+      │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── my-rules.md <span class="desc">(ask first, show a plan, never delete without approval)</span><br>
+      ├── <span class="folder">&#128194; PROJECTS/</span> <span class="desc">&mdash; one folder per live project (overview.md in each)</span><br>
+      ├── <span class="folder">&#128194; TEMPLATES/</span> <span class="desc">&mdash; your best past work (real examples Claude can reference)</span><br>
+      └── <span class="folder">&#128194; OUTPUTS/</span> <span class="desc">&mdash; where Cowork saves your files automatically</span>
+    </div>
+
+    <div class="sub-box" style="margin: 10px 0 0 30px; font-size: 12px; color: #666666; line-height: 1.5;">
+      <strong>Click any file below to see a filled-in example:</strong>
+    </div>
+
+    <div class="example-cards">
+      <!-- about-me.md -->
+      <div class="example-card">
+        <button class="example-card-header" onclick="toggleCard(this)">
+          <span class="arrow">&#9654;</span>
+          <span><span class="card-filename">about-me.md</span> <span class="card-desc">&mdash; who you are</span></span>
+        </button>
+        <div class="example-card-body">
+          <div class="example-card-content">
+            <div class="ex-heading">Who I Am</div>
+            <div class="ex-item"><span class="ex-label">Name:</span> Maya Chen</div>
+            <div class="ex-item"><span class="ex-label">Role:</span> Product Owner</div>
+            <div class="ex-item"><span class="ex-label">Team / Org:</span> Digital Payments &mdash; Consumer App Squad</div>
+            <div class="ex-heading">What I Do Day-to-Day</div>
+            <div class="ex-item">Run sprint planning and prioritize the product backlog</div>
+            <div class="ex-item">Write user stories and acceptance criteria for engineering</div>
+            <div class="ex-item">Coordinate between design, QA, and marketing on feature launches</div>
+            <div class="ex-item">Present sprint demos and roadmap updates to leadership</div>
+            <div class="ex-heading">Tools I Use</div>
+            <div class="ex-item">Jira, Confluence, Figma, Slack, BigQuery, Google Docs</div>
+            <div class="ex-heading">What I Want Claude to Help With</div>
+            <div class="ex-item">Drafting user stories from rough feature ideas</div>
+            <div class="ex-item">Summarizing long Slack threads and meeting transcripts</div>
+            <div class="ex-item">Creating sprint reports and stakeholder updates</div>
+            <div class="ex-item">Researching competitors and market benchmarks</div>
+            <div class="ex-heading">Context Claude Should Know</div>
+            <div class="ex-item">I present to VPs weekly &mdash; keep slides high-level with clear takeaways</div>
+            <div class="ex-item">Our team works in 2-week sprints and I need updates ready by Friday</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- my-voice.md -->
+      <div class="example-card">
+        <button class="example-card-header" onclick="toggleCard(this)">
+          <span class="arrow">&#9654;</span>
+          <span><span class="card-filename">my-voice.md</span> <span class="card-desc">&mdash; your tone</span></span>
+        </button>
+        <div class="example-card-body">
+          <div class="example-card-content">
+            <div class="ex-heading">How I Like to Communicate</div>
+            <div class="ex-item"><span class="ex-label">Tone:</span> Professional but warm &mdash; like a smart teammate, not a robot</div>
+            <div class="ex-item"><span class="ex-label">Length:</span> Keep it short &mdash; bullet points over paragraphs</div>
+            <div class="ex-item"><span class="ex-label">Format:</span> Headers and bullets for easy scanning</div>
+            <div class="ex-heading">Phrases I Like</div>
+            <div class="ex-item">"Here's the bottom line…"</div>
+            <div class="ex-item">"What this means for the customer…"</div>
+            <div class="ex-item">"Quick update &mdash;" and "Net-net:"</div>
+            <div class="ex-heading">Phrases I Don't Like</div>
+            <div class="ex-item">"Synergize", "leverage", "circle back" as filler</div>
+            <div class="ex-item">"Per my last email" &mdash; sounds passive-aggressive</div>
+            <div class="ex-item">Overly technical jargon when the audience isn't engineering</div>
+            <div class="ex-heading">Audience Awareness</div>
+            <div class="ex-item"><span class="ex-label">My team:</span> Casual, direct, skip the background</div>
+            <div class="ex-item"><span class="ex-label">Leadership:</span> Lead with impact and outcomes, then details</div>
+            <div class="ex-item"><span class="ex-label">External:</span> Friendly, professional, no internal jargon</div>
+            <div class="ex-item"><span class="ex-label">Cross-functional:</span> Plain language, define acronyms</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- my-rules.md -->
+      <div class="example-card">
+        <button class="example-card-header" onclick="toggleCard(this)">
+          <span class="arrow">&#9654;</span>
+          <span><span class="card-filename">my-rules.md</span> <span class="card-desc">&mdash; your rules</span></span>
+        </button>
+        <div class="example-card-body">
+          <div class="example-card-content">
+            <div class="ex-heading">Always Do</div>
+            <div class="ex-item">1. Ask before acting &mdash; show me the plan first, then wait for my OK</div>
+            <div class="ex-item">2. Read my files first &mdash; check the ABOUT ME folder at the start of every task</div>
+            <div class="ex-item">3. Show progress &mdash; use a checklist so I can follow along</div>
+            <div class="ex-item">4. Save files where I can find them &mdash; put everything in the OUTPUTS folder</div>
+            <div class="ex-item">5. Match my voice &mdash; check my-voice.md before writing anything on my behalf</div>
+            <div class="ex-heading">Never Do</div>
+            <div class="ex-item">1. Never delete my files without asking first</div>
+            <div class="ex-item">2. Never guess when you're unsure &mdash; ask me instead</div>
+            <div class="ex-item">3. Never use technical jargon unless I ask for it</div>
+            <div class="ex-item">4. Never skip proofreading &mdash; check spelling, grammar, and tone</div>
+            <div class="ex-item">5. Never make up data &mdash; if you don't know, say so</div>
+            <div class="ex-heading">How I Like to Work</div>
+            <div class="ex-item">I review drafts before they're finalized</div>
+            <div class="ex-item">Break big tasks into small steps I can approve one at a time</div>
+            <div class="ex-item">If something looks wrong, flag it &mdash; don't silently move on</div>
+            <div class="ex-item">When in doubt, give me options to choose from rather than picking for me</div>
+            <div class="ex-heading">Quality Checks</div>
+            <div class="ex-item">Proofread everything before sharing</div>
+            <div class="ex-item">Double-check names, dates, and numbers</div>
+            <div class="ex-item">Make sure the tone matches the audience</div>
+            <div class="ex-item">If creating slides or docs, keep formatting clean and consistent</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- overview.md (Projects) -->
+      <div class="example-card">
+        <button class="example-card-header" onclick="toggleCard(this)">
+          <span class="arrow">&#9654;</span>
+          <span><span class="card-filename">overview.md</span> <span class="card-desc">&mdash; per project</span></span>
+        </button>
+        <div class="example-card-body">
+          <div class="example-card-content">
+            <div class="ex-heading">Project: Mobile App Rewards Program</div>
+            <div class="ex-heading" style="font-size:11px; color:#666; margin-top:4px;">What Is This?</div>
+            <div class="ex-item">Launching a rewards feature that lets customers earn points on every transaction. Target launch Q3 2026.</div>
+            <div class="ex-heading" style="font-size:11px; color:#666;">My Role</div>
+            <div class="ex-item">Product Owner &mdash; I own the backlog, write user stories, and coordinate between design, engineering, and marketing.</div>
+            <div class="ex-heading" style="font-size:11px; color:#666;">Key People</div>
+            <div class="ex-item"><span class="ex-label">Design Lead:</span> Alex &nbsp; <span class="ex-label">Eng Lead:</span> Priya &nbsp; <span class="ex-label">Marketing:</span> Carlos</div>
+            <div class="ex-heading" style="font-size:11px; color:#666;">Current Status</div>
+            <div class="ex-item"><span class="ex-label">Phase:</span> Design review &mdash; engineering starts in 2 weeks</div>
+            <div class="ex-item"><span class="ex-label">On track?</span> Yes, but waiting on legal review for T&amp;Cs</div>
+            <div class="ex-item"><span class="ex-label">Next milestone:</span> Design sign-off by March 28</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEMPLATES -->
+      <div class="example-card">
+        <button class="example-card-header" onclick="toggleCard(this)">
+          <span class="arrow">&#9654;</span>
+          <span><span class="card-filename">TEMPLATES/</span> <span class="card-desc">&mdash; what to put here</span></span>
+        </button>
+        <div class="example-card-body">
+          <div class="example-card-content">
+            <div class="ex-heading">Drop your best past work here. Claude uses these as style references.</div>
+            <div class="ex-item">&#128196; <span class="ex-label">status-report-example.docx</span> &mdash; your go-to weekly report format</div>
+            <div class="ex-item">&#128196; <span class="ex-label">powerpoint-deck-template.pptx</span> &mdash; your standard company deck template</div>
+            <div class="ex-item" style="margin-top:6px; color:#888; font-style:italic;">Then tell Claude: "Use the style from my status report template" or "Match the format of my deck template"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTPUTS -->
+      <div class="example-card">
+        <button class="example-card-header" onclick="toggleCard(this)">
+          <span class="arrow">&#9654;</span>
+          <span><span class="card-filename">OUTPUTS/</span> <span class="card-desc">&mdash; how this works</span></span>
+        </button>
+        <div class="example-card-body">
+          <div class="example-card-content">
+            <div class="ex-item">You don't need to put anything here. Claude saves files it creates &mdash; presentations, reports, spreadsheets &mdash; into this folder automatically.</div>
+            <div class="ex-item" style="margin-top:4px;">Just check this folder after Claude finishes a task to find your deliverables.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PICK YOUR MODEL -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">3.</span> Pick Your Model</div>
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Choose your model before starting</strong> — Once a session starts, the model is <strong>locked</strong></div></li>
+    </ul>
+    <div class="model-grid">
+      <div class="model-card opus">
+        <div class="model-name">Opus</div>
+        <div class="model-tag">Deep Thinking</div>
+        <div class="model-desc">Complex reasoning, high-stakes reviews, critical accuracy</div>
+        <div class="model-examples">
+          <div class="role-row"><span class="role-label">PO:</span> Analyzing 50+ pages of user research to find gaps for a PRD</div>
+          <div class="role-row"><span class="role-label">Designer:</span> Reviewing a Design System for accessibility &amp; logic gaps</div>
+          <div class="role-row"><span class="role-label">Marketing:</span> Developing a full-year brand strategy or competitive positioning</div>
+        </div>
+      </div>
+      <div class="model-card recommended">
+        <div class="model-name">Sonnet</div>
+        <div class="model-tag">Your Default &#9733;</div>
+        <div class="model-desc">Everyday work — writing, summarizing, brainstorming</div>
+        <div class="model-examples">
+          <div class="role-row"><span class="role-label">PO:</span> Drafting user stories from a rough feature list</div>
+          <div class="role-row"><span class="role-label">Designer:</span> Turning rough requirements into a clear design spec</div>
+          <div class="role-row"><span class="role-label">Marketing:</span> Drafting a personalized outreach email from meeting notes</div>
+        </div>
+      </div>
+      <div class="model-card haiku">
+        <div class="model-name">Haiku</div>
+        <div class="model-tag">Fast &amp; Simple</div>
+        <div class="model-desc">Quick questions, formatting, cleanup, speed tasks</div>
+        <div class="model-examples">
+          <div class="role-row"><span class="role-label">PO:</span> Reformatting messy technical notes into clean bullet points</div>
+          <div class="role-row"><span class="role-label">Designer:</span> Generating 20 quick alternative button labels in seconds</div>
+          <div class="role-row"><span class="role-label">Marketing:</span> Brainstorming 20 quick social media headlines</div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-box" style="margin-top: 8px; font-size: 12.5px; line-height: 1.8;">
+      <strong>Suggested daily workflow:</strong><br>
+      <span style="margin-left: 8px;">&bull; <strong>Opus:</strong> Plan your day, break down projects, set priorities, and map out tasks</span><br>
+      <span style="margin-left: 8px;">&bull; <strong>Sonnet:</strong> Execute on the plan &mdash; write docs, build decks, draft emails, handle details</span><br>
+      <span style="margin-left: 8px;">&bull; <strong>Haiku:</strong> Quick ad-hoc tasks &mdash; reformat notes, brainstorm names, clean up a table</span><br>
+      <span style="font-size: 11.5px; color: #c0392b; font-weight: 600; margin-left: 8px;">&#9888; Opus burns tokens fast and may hit rate limits. Use it for planning, not all-day work.</span><br>
+      <span style="font-size: 11.5px; color: #c0392b; font-weight: 600; margin-left: 8px;">&#9888; You can't switch models mid-session. Pick your model before you start &mdash; you'll need a new session to change it.</span>
+    </div>
+    <div class="sub-box" style="margin-top: 6px; font-size: 12.5px; line-height: 1.8;">
+      <strong>Save your plan before closing.</strong><br>
+      When Claude creates a task list for you, ask it to save it somewhere you'll use it:<br>
+      <span style="color: #666; font-size: 12px; margin-left: 8px;">&bull; "Create this task list as Jira stories in PROJECT-X"</span><br>
+      <span style="color: #666; font-size: 12px; margin-left: 8px;">&bull; "Create this task list as a file in my OUTPUTS folder"</span><br>
+      <span style="color: #666; font-size: 12px; margin-left: 8px;">&bull; "Create this task list as a checklist on our Confluence page"</span>
+    </div>
+  </div>
+
+  <!-- 4. SET ONCE, NEVER AGAIN -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">4.</span> Set Once, Never Again</div>
+    <div class="sub-box" style="margin: 0 0 10px 0; font-size: 12.5px; color: #555555; line-height: 1.6;">
+      Your top 3 rules that Claude follows every session, automatically &mdash; even before it reads your folder.
+    </div>
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Configure Global Instructions</strong> &mdash; Settings &rarr; Cowork &rarr; Edit Global Instructions</div></li>
+    </ul>
+    <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12px; color: #666666;">
+      Paste this and replace [Name] and [Role] with your own:
+    </div>
+    <div class="code-block">I am [Name], [Role]. Read my files before every task.
+
+Ask Questions before executing. Show a plan first.
+
+Never delete files without my explicit approval.</div>
+  </div>
+
+  <!-- 5. CONNECT YOUR TOOLS -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">5.</span> Connect Your Tools</div>
+
+    <div class="sub-box" style="margin: 0 0 14px 0; font-size: 12.5px; color: #555555; line-height: 1.5;">
+      <strong>Connect Claude to your external data sources:</strong>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 0 30px;">
+      <div class="model-card">
+        <div class="model-name" style="font-size: 14px;">&#128279; Connectors</div>
+        <div class="model-tag">Sign in or ask IT</div>
+        <div class="model-desc">Tools you already use &mdash; Jira, Confluence, Figma, BigQuery</div>
+        <div class="model-examples" style="text-align: left;">
+          <div class="role-row"><span class="role-label">Self-service:</span> Confluence, Jira, Figma, Miro &mdash; just sign in</div>
+          <div class="role-row"><span class="role-label">Needs IT:</span> BigQuery, Salesforce, SharePoint &mdash; ask IT first</div>
+          <div class="role-row"><span class="role-label">Use for:</span> Ask Claude questions using data from external data sources (e.g. BigQuery)</div>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name" style="font-size: 14px;">&#128295; MCP Servers</div>
+        <div class="model-tag">Ask IT for credentials</div>
+        <div class="model-desc">Specialized tools not in the connector list</div>
+        <div class="model-examples" style="text-align: left;">
+          <div class="role-row"><span class="role-label">How:</span> Ask IT for a config snippet and secret key to paste</div>
+          <div class="role-row"><span class="role-label">Use for:</span> Ask Claude questions using data from external data sources (e.g. OpenCX)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 1px; background: #e8e8e8; margin: 16px 0;"></div>
+
+    <!-- SSO/OAuth Connectors -->
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Sign-in Connectors (Okta)</strong> &mdash; Just sign in with your work account. You can do this yourself.</div></li>
+    </ul>
+    <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12.5px; line-height: 1.7;">
+      <span style="margin-left: 8px;">Settings &rarr; Connectors &rarr; Browse Connectors &rarr; Find your tool &rarr; Click Connect &rarr; Sign in</span><br>
+      <span style="margin-left: 8px;">Or type <strong>"Connect to [Tool]"</strong> in the chat and follow the prompts</span>
+    </div>
+    <div class="sub-box" style="margin: 6px 0 0 30px; font-size: 12px; color: #666666;">
+      <strong>Examples:</strong> Confluence, Jira, Figma, Miro &mdash; just click Connect and sign in with your normal work login.
+    </div>
+
+    <div style="height: 1px; background: #e8e8e8; margin: 16px 0;"></div>
+
+    <!-- Credential-based Connectors -->
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Connectors that need IT approval</strong></div></li>
+    </ul>
+    <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12px; color: #555555; line-height: 1.7;">
+      <strong>Examples:</strong> BigQuery, Salesforce, SharePoint &mdash; ask IT to grant you access first, then connect the same way.
+    </div>
+
+    <div style="height: 1px; background: #e8e8e8; margin: 16px 0;"></div>
+
+    <!-- MCP Servers -->
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>MCP Servers</strong> &mdash; Ask IT for the API key and secret, then follow the steps below</div></li>
+    </ul>
+    <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12px; line-height: 1.7;">
+      Your IT team will give you two things:<br>
+      <span style="margin-left: 8px;">&bull; A <strong>config snippet</strong> &mdash; a block of text to copy-paste</span><br>
+      <span style="margin-left: 8px;">&bull; A <strong>secret key</strong> &mdash; a long string of characters (treat it like a password)</span>
+    </div>
+    <div class="sub-box" style="margin: 6px 0 0 30px; font-size: 12px; line-height: 1.7;">
+      <strong>How to set it up:</strong><br>
+      <span style="margin-left: 8px;">1. Go to Profile &rarr; Settings &rarr; Developer &rarr; Edit Config</span><br>
+      <span style="margin-left: 8px;">2. Paste the config snippet IT gave you</span><br>
+      <span style="margin-left: 8px;">3. Replace <span style="font-family: 'Courier New', monospace; font-size: 11px; background: #eee; padding: 1px 5px; border-radius: 3px;">"your-api-key-here"</span> with the secret key IT provided</span><br>
+      <span style="margin-left: 8px;">4. Save and restart Claude Desktop</span>
+    </div>
+    <div class="sub-box" style="margin: 6px 0 0 30px; font-size: 12px;">
+      <strong>Example config snippet (OpenCX):</strong>
+    </div>
+    <div class="code-block" style="font-size: 11px; margin-top: 4px;">{
+  "mcpServers": {
+    "opencx": {
+      "command": "npx",
+      "args": ["-y", "@opencx/mcp"],
+      "env": {
+        "OPENCX_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}</div>
+
+    <div class="sub-box" style="margin: 12px 0 0 30px; font-size: 12px; color: #c0392b; line-height: 1.4; border-left-color: #c0392b;">
+      <strong>&#9888; Treat API keys and secret keys like passwords.</strong> Never share in Slack, email, or docs.
+    </div>
+  </div>
+
+  <!-- 6. YOUR STANDARD WAY OF WORKING -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">6.</span> Your Standard Workflow</div>
+    <div class="sub-box" style="margin: 0; font-size: 12.5px; color: #555555; line-height: 1.5; margin-bottom: 10px;">
+      Follow this flow every time you open Cowork.
+    </div>
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>1. Open Cowork and select your Claude-Work folder</strong></div></li>
+      <li><div class="cb"></div><div><strong>2. Pick your model</strong> &mdash; Opus for planning, Sonnet for doing, Haiku for quick tasks</div></li>
+      <li><div class="cb"></div><div><strong>3. Keep your prompt short</strong> &mdash; Claude already reads your files. Example: <em>"Read my files. I need to draft a status update for the Rewards project."</em></div></li>
+      <li><div class="cb"></div><div><strong>4. Review Claude's plan</strong> &mdash; Claude will show you a plan before it starts. Approve it, adjust it, or ask questions.</div></li>
+      <li><div class="cb"></div><div><strong>5. Review the output</strong> &mdash; You're the expert, Claude is the assistant. Ask for changes: <em>"Make it shorter"</em> or <em>"Change the tone to be more casual."</em></div></li>
+      <li><div class="cb"></div><div><strong>6. Save your work before closing</strong> &mdash; Ask Claude to save deliverables to your OUTPUTS folder, Jira, or Confluence.</div></li>
+    </ul>
+  </div>
+
+  <!-- 7. START ASKING -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">7.</span> Start Asking — Sample Prompts</div>
+    <div class="prompts-grid">
+      <div class="prompt-group">
+        <div class="tool-name">Jira</div>
+        <div class="prompt-example">"Show me all open bugs assigned to me"<br>"Move PROJ-123 to Done"</div>
+      </div>
+      <div class="prompt-group">
+        <div class="tool-name">Confluence</div>
+        <div class="prompt-example">"Summarize the latest architecture decision page"<br>"Create a new page for Q1 retro notes"</div>
+      </div>
+      <div class="prompt-group">
+        <div class="tool-name">Miro</div>
+        <div class="prompt-example">"What's on our sprint planning board?"<br>"Create a flowchart for our approval process"</div>
+      </div>
+      <div class="prompt-group">
+        <div class="tool-name">Figma</div>
+        <div class="prompt-example">"Show me the design for this screen: [URL]"<br>"What components are used in this layout?"</div>
+      </div>
+      <div class="prompt-group">
+        <div class="tool-name">SharePoint</div>
+        <div class="prompt-example">"Find the latest budget file on SharePoint"<br>"Search for the onboarding checklist"</div>
+      </div>
+      <div class="prompt-group">
+        <div class="tool-name">BigQuery</div>
+        <div class="prompt-example">"How many active users did we have last month?"<br>"Top 10 products by revenue"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. STOP DOING -->
+  <div class="section">
+    <div class="section-label"><span class="section-number">8.</span> Stop Doing</div>
+    <ul class="items stop-items">
+      <li><div class="cb"></div><div><span class="dont">Writing long prompts for every task</span> &rarr; <span class="fix">Keep it short. Claude reads your files.</span></div></li>
+      <li><div class="cb"></div><div><span class="dont">Skipping the folder setup</span> &rarr; <span class="fix">Set up Claude-Work once. Reuse it every session.</span></div></li>
+      <li><div class="cb"></div><div><span class="dont">Using Chat when you need Cowork</span> &rarr; <span class="fix">Chat can't read your files or connect to your tools.</span></div></li>
+      <li><div class="cb"></div><div><span class="dont">Expecting Claude to know you without files</span> &rarr; <span class="fix">Fill in your ABOUT ME folder. That's how Claude learns you.</span></div></li>
+    </ul>
+  </div>
+
+
+</div>
+
+<script>
+function toggleCard(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
