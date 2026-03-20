@@ -430,7 +430,7 @@
 
   <div class="header">
     <h1>Claude Cowork Setup Checklist</h1>
-    <div class="subtitle" style="margin-top:6px; font-size:12px;">Last updated: March 16, 2026</div>
+    <div class="subtitle" style="margin-top:6px; font-size:12px;">Last updated: March 20, 2026</div>
   </div>
 
   <div class="divider"></div>
@@ -700,13 +700,30 @@ Never delete files without my explicit approval.</div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 0 30px;">
       <div class="model-card">
+        <div class="model-name" style="font-size: 14px;">&#127760; Control Chrome</div>
+        <div class="model-tag">Enable in Settings</div>
+        <div class="model-desc">Let Claude open pages, read content, and interact with your browser</div>
+        <div class="model-examples" style="text-align: left;">
+          <div class="role-row"><span class="role-label">How:</span> Settings &rarr; Connectors &rarr; Browser &rarr; Install &rarr; Enable</div>
+          <div class="role-row"><span class="role-label">Use for:</span> "Read this webpage for me" or "Fill in this form"</div>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-name" style="font-size: 14px;">&#128736; Chrome Extension</div>
+        <div class="model-tag">Install from Chrome Web Store</div>
+        <div class="model-desc">Use Claude directly inside your browser while you browse</div>
+        <div class="model-examples" style="text-align: left;">
+          <div class="role-row"><span class="role-label">How:</span> Chrome Web Store &rarr; Add to Chrome &rarr; Authorize</div>
+          <div class="role-row"><span class="role-label">Use for:</span> Highlight text on any page and ask Claude about it</div>
+        </div>
+      </div>
+      <div class="model-card">
         <div class="model-name" style="font-size: 14px;">&#128279; Connectors</div>
         <div class="model-tag">Sign in or ask IT</div>
         <div class="model-desc">Tools you already use &mdash; Jira, Confluence, Figma, BigQuery</div>
         <div class="model-examples" style="text-align: left;">
           <div class="role-row"><span class="role-label">Self-service:</span> Confluence, Jira, Figma, Miro &mdash; just sign in</div>
           <div class="role-row"><span class="role-label">Needs IT:</span> BigQuery, Salesforce, SharePoint &mdash; ask IT first</div>
-          <div class="role-row"><span class="role-label">Use for:</span> Ask Claude questions using data from external data sources (e.g. BigQuery)</div>
         </div>
       </div>
       <div class="model-card">
@@ -715,7 +732,7 @@ Never delete files without my explicit approval.</div>
         <div class="model-desc">Specialized tools not in the connector list</div>
         <div class="model-examples" style="text-align: left;">
           <div class="role-row"><span class="role-label">How:</span> Ask IT for a config snippet and secret key to paste</div>
-          <div class="role-row"><span class="role-label">Use for:</span> Ask Claude questions using data from external data sources (e.g. OpenCX)</div>
+          <div class="role-row"><span class="role-label">Use for:</span> External data sources (e.g. OpenCX)</div>
         </div>
       </div>
     </div>
@@ -742,6 +759,42 @@ Never delete files without my explicit approval.</div>
     </ul>
     <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12px; color: #555555; line-height: 1.7;">
       <strong>Examples:</strong> BigQuery, Salesforce, SharePoint &mdash; ask IT to grant you access first, then connect the same way.
+    </div>
+
+    <div style="height: 1px; background: #e8e8e8; margin: 16px 0;"></div>
+
+    <!-- Cowork Control Chrome Connector -->
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Cowork Control Chrome Connector</strong> &mdash; Let Claude interact with your browser (open pages, read content, fill forms)</div></li>
+    </ul>
+    <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12px; line-height: 1.7;">
+      <strong>How to set it up:</strong><br>
+      <span style="margin-left: 8px;">1. Open Claude Desktop &rarr; click your <strong>Profile icon</strong> (bottom-left)</span><br>
+      <span style="margin-left: 8px;">2. Go to <strong>Settings</strong> &rarr; <strong>Connectors</strong></span><br>
+      <span style="margin-left: 8px;">3. Find <strong>Browser</strong> &rarr; <strong>Control Chrome</strong></span><br>
+      <span style="margin-left: 8px;">4. Click <strong>Install</strong></span><br>
+      <span style="margin-left: 8px;">5. Once installed, toggle it to <strong>Enabled</strong></span>
+    </div>
+    <div class="sub-box" style="margin: 6px 0 0 30px; font-size: 12px; color: #666666; line-height: 1.5;">
+      <strong>What this lets you do:</strong> Ask Claude to open a webpage, read its contents, fill in forms, click buttons, and take screenshots &mdash; all from within Cowork.
+    </div>
+
+    <div style="height: 1px; background: #e8e8e8; margin: 16px 0;"></div>
+
+    <!-- Cowork Chrome Extension -->
+    <ul class="items">
+      <li><div class="cb"></div><div><strong>Cowork Chrome Extension (Claude in Chrome)</strong> &mdash; Use Claude directly inside your browser while you browse</div></li>
+    </ul>
+    <div class="sub-box" style="margin: 4px 0 0 30px; font-size: 12px; line-height: 1.7;">
+      <strong>How to set it up:</strong><br>
+      <span style="margin-left: 8px;">1. Open the <strong>Chrome Web Store</strong> and search for <strong>"Claude"</strong></span><br>
+      <span style="margin-left: 8px;">2. Click <strong>Add to Chrome</strong> to install the extension</span><br>
+      <span style="margin-left: 8px;">3. When prompted, select your organization (<strong>MoneyGram</strong>)</span><br>
+      <span style="margin-left: 8px;">4. Click <strong>Authorize</strong> to grant permissions</span><br>
+      <span style="margin-left: 8px;">5. You'll see the Claude icon in your Chrome toolbar &mdash; you're all set</span>
+    </div>
+    <div class="sub-box" style="margin: 6px 0 0 30px; font-size: 12px; color: #666666; line-height: 1.5;">
+      <strong>What this lets you do:</strong> Highlight text on any webpage and ask Claude about it, get summaries of pages you're viewing, and interact with Claude without leaving your browser.
     </div>
 
     <div style="height: 1px; background: #e8e8e8; margin: 16px 0;"></div>
